@@ -3,5 +3,6 @@ obj/
 *.depend
 *.sln
 *.suo
-*.users
+*.user
 *.filters
+/*.layout
