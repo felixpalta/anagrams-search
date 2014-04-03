@@ -1,7 +1,7 @@
 #include <stdexcept>
 #include <algorithm>
 #include "Dictionary.h"
-#include "dictionary_container.h"
+
 
 using namespace std;
 
@@ -22,8 +22,10 @@ Dictionary::Dictionary(const std::string& filename)
     };
 }
 
-void Dictionary::printall(ostream& out){
+void Dictionary::printall(ostream& out) const {
     for (Dict_cont::const_iterator p = data.begin(); p != data.end(); ++p){
         out << p-> first << ": " << p->second << endl;
     }
 }
+
+

@@ -10,7 +10,7 @@ class Filename {
         if (argc < 2) throw std::invalid_argument("Dictionary file name is required");
         name_s = argv[1];
     }
-    const std::string& name() {return name_s;}
+    const std::string& name() const {return name_s;}
     private:
     std::string name_s;
 };

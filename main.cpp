@@ -3,7 +3,7 @@
 
 #include "Filename.h"
 #include "Dictionary.h"
-#include <map>
+#include "input_loop.h"
 using namespace std;
 
 int main(int argc, char* argv[])
@@ -11,7 +11,7 @@ try
 {
     Filename fn(argc,argv);
     Dictionary d(fn.name());
-    d.printall(cout);
+    input_loop(cin,cout,d);
 
     return 0;
 }
@@ -21,3 +21,5 @@ catch (exception& e){
 catch (...) {
     cout << "Unknown exception" << endl;
 }
+
+
