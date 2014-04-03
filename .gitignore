@@ -1,0 +1,7 @@
+bin/
+obj/
+*.depend
+*.sln
+*.suo
+*.users
+*.filters
