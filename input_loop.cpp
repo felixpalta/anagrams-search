@@ -1,5 +1,6 @@
 #include <vector>
 #include <iostream>
+#include <algorithm>
 #include "input_loop.h"
 
 using namespace std;
@@ -22,8 +23,6 @@ void input_loop(std::istream& input, std::ostream& output, const Dictionary& dic
 
 void findCombinations(const string& word, comb_cont& combs){
 
-
-
     typedef vector<string> temp_cont;
     temp_cont v;
     v.push_back(string(1,word.at(0)));
@@ -34,19 +33,27 @@ void findCombinations(const string& word, comb_cont& combs){
         for (temp_cont::size_type j = 0; j < vsize; ++j){
             string temp(v.at(j));
             temp += word.at(i);
-
+            sort(temp.begin(),temp.end());
             v.push_back(temp);
         }
-
         v.push_back(string(1,word.at(i)));
-
     }
 
 
     for (temp_cont::size_type k = 0; k < v.size(); ++k) combs.insert(v.at(k));
 
-    //combs now contains all unique combinations of the word letters, and they are sorted
 
+    //combs now contains all unique combinations of the word letters, and they are sorted
+}
+
+void printCombinations(const comb_cont& combs, ostream& output){
+    output << "All unique combinations: " << endl;
+    int n = 0;
+    for (comb_cont::const_iterator comb_p = combs.begin(); comb_p != combs.end(); ++comb_p){
+        cout << *comb_p << endl;
+        ++n;
+    }
+    output << "N of unique combinations: " << n << endl;
 }
 
 void printEntries(const comb_cont& combs,const Dictionary& dict,std::ostream& output){

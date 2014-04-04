@@ -1,16 +1,17 @@
 #include <iostream>
 #include <stdexcept>
 
-#include "Filename.h"
+#include "Arguments.h"
 #include "Dictionary.h"
 #include "input_loop.h"
+
 using namespace std;
 
 int main(int argc, char* argv[])
 try
 {
-    Filename fn(argc,argv);
-    Dictionary d(fn.name());
+    Arguments arg(argc,argv);
+    Dictionary d(arg.filename());
     input_loop(cin,cout,d);
 
     return 0;
