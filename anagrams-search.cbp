@@ -32,9 +32,9 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="Arguments.h" />
 		<Unit filename="Dictionary.cpp" />
 		<Unit filename="Dictionary.h" />
-		<Unit filename="Filename.h" />
 		<Unit filename="input_loop.cpp" />
 		<Unit filename="input_loop.h" />
 		<Unit filename="main.cpp" />
