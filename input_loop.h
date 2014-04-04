@@ -7,8 +7,10 @@
 
 #include "Dictionary.h"
 
-
-
+// Combinations container
+// Contains a sorted sequence of all unique combinations (not permutations),
+// that can be made from a string of N characters;
+// comb_cont::size() equals 2N-1 or less, if there are repeating characters in the string.
 typedef std::set<std::string> comb_cont;
 
 void input_loop(std::istream& input, std::ostream& output, const Dictionary& dict);

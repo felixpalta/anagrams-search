@@ -6,7 +6,7 @@
 using namespace std;
 
 Dictionary::Dictionary(const std::string& filename)
-    :   input(filename.c_str()),
+    :   input(filename.c_str()),    // construct input stream and open file
         data()
 {
     if (!input) throw invalid_argument("Can't open file: " + filename);
