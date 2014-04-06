@@ -73,6 +73,7 @@ void printCombinations(const comb_cont& combs, ostream& output){
 void printEntries(const comb_cont& combs,const Dictionary& dict,std::ostream& output){
     auto& data = dict.get_data();
 
+	Dictionary::Dict_cont::size_type NumberOfEntriesFound = 0;
     // searching for combinations in the dictionary
 
     for (auto comb_p = combs.begin(); comb_p != combs.end(); ++comb_p){
@@ -82,8 +83,10 @@ void printEntries(const comb_cont& combs,const Dictionary& dict,std::ostream& ou
 
         for (auto dict_p = range.first; dict_p != range.second; ++dict_p){
             output << dict_p->second << endl;
+			++NumberOfEntriesFound;
         }
 
     }
+	output << "Total Number of Entries Found: " << NumberOfEntriesFound << endl;
 }
 
