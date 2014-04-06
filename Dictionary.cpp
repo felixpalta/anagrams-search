@@ -23,7 +23,7 @@ Dictionary::Dictionary(const std::string& filename)
 }
 
 void Dictionary::printall(ostream& out) const {
-    for (Dict_cont::const_iterator p = data.begin(); p != data.end(); ++p){
+    for (auto p = data.begin(); p != data.end(); ++p){
         out << p-> first << ": " << p->second << endl;
     }
 }

@@ -39,7 +39,7 @@ void findCombinations(string& word, comb_cont& combs){
     // Total number of combinations for a string of length N is 2^N-1.
     typedef vector<string> temp_cont;
     temp_cont v;
-    v.push_back(string(1,word.at(0)));  // first simplest combination is a first character of a string
+    v.push_back(string(1,word.at(0)));  // first simplest combination is the first character of the string
 
     for (string::size_type i = 1; i < word.size(); ++i){
         temp_cont::size_type vsize = v.size();  // storing the size of a vector for this iteration, before pushing in it.
@@ -63,7 +63,7 @@ void findCombinations(string& word, comb_cont& combs){
 void printCombinations(const comb_cont& combs, ostream& output){
     output << "All unique combinations: " << endl;
     int n = 0;
-    for (comb_cont::const_iterator comb_p = combs.begin(); comb_p != combs.end(); ++comb_p){
+    for (auto comb_p = combs.begin(); comb_p != combs.end(); ++comb_p){
         cout << *comb_p << endl;
         ++n;
     }
@@ -71,17 +71,16 @@ void printCombinations(const comb_cont& combs, ostream& output){
 }
 
 void printEntries(const comb_cont& combs,const Dictionary& dict,std::ostream& output){
-    const Dictionary::Dict_cont& data = dict.get_data();
+    auto& data = dict.get_data();
 
     // searching for combinations in the dictionary
 
-    for (comb_cont::const_iterator comb_p = combs.begin(); comb_p != combs.end(); ++comb_p){
+    for (auto comb_p = combs.begin(); comb_p != combs.end(); ++comb_p){
 
-        typedef Dictionary::Dict_cont::const_iterator dict_const_iter;
-        std::pair<dict_const_iter, dict_const_iter> range;
-        range = data.equal_range(*comb_p);  // there can be several words found for each combination
 
-        for (dict_const_iter dict_p = range.first; dict_p != range.second; ++dict_p){
+        auto range = data.equal_range(*comb_p);  // there can be several words found for each combination
+
+        for (auto dict_p = range.first; dict_p != range.second; ++dict_p){
             output << dict_p->second << endl;
         }
 
