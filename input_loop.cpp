@@ -29,7 +29,9 @@ void input_loop(std::istream& input, std::ostream& output, const Dictionary& dic
 
 // Find all unique combinations of a string characters
 // and store them in combination container
-void findCombinations(const string& word, comb_cont& combs){
+void findCombinations(string& word, comb_cont& combs){
+
+	sort(word.begin(),word.end());  // sort input word by characters, so we don't have to sort each combination
 
     // Temporary combination container
     // Stores all combinations, that can be made from the word
@@ -45,7 +47,7 @@ void findCombinations(const string& word, comb_cont& combs){
         for (temp_cont::size_type j = 0; j < vsize; ++j){
             string temp(v.at(j));
             temp += word.at(i); // make a combinations of a current character with all the combinations in the temp_cont
-            sort(temp.begin(),temp.end());  // then sort resulting combination by character values
+            
             v.push_back(temp);
         }
         v.push_back(string(1,word.at(i)));
