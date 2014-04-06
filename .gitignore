@@ -6,3 +6,8 @@ obj/
 *.user
 *.filters
 /*.layout
+/Visual Studio 2010Templates
+/Debug
+/Release
+/Visual Studio 2010
+/Visual Studio 2010Projects
