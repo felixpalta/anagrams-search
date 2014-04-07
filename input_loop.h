@@ -20,4 +20,6 @@ void printCombinations(const comb_cont& combs, std::ostream& output);
 
 void printEntries(const comb_cont& combs,const Dictionary& dict,std::ostream& output);
 
+const unsigned maxWordLength = 20;
+
 

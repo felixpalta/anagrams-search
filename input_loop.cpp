@@ -1,6 +1,7 @@
 #include <vector>
 #include <iostream>
 #include <algorithm>
+#include <stdexcept>
 #include "input_loop.h"
 
 using namespace std;
@@ -17,7 +18,7 @@ void input_loop(std::istream& input, std::ostream& output, const Dictionary& dic
         output << "> ";
         input >> word;
         if (!input) return;
-
+        if (word.size() > maxWordLength) throw invalid_argument("Input word is too long");
         comb_cont combs;
         findCombinations(word,combs);
         output << "Entries found for \'" << word << "\' :" << endl;
